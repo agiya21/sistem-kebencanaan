@@ -9,3 +9,16 @@ E:\sistemKebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebenca
 E:\sistemKebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.CoreCompileInputs.cache
 E:\sistemKebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.exe
 E:\sistemKebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.pdb
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\bin\Debug\sistemKebencanaan.exe.config
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\bin\Debug\sistemKebencanaan.exe
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\bin\Debug\sistemKebencanaan.pdb
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.AssemblyReference.cache
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.SuggestedBindingRedirects.cache
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.InsertData.resources
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Login.resources
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Properties.Resources.resources
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.GenerateResource.cache
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.CoreCompileInputs.cache
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.exe
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.pdb
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Home.resources

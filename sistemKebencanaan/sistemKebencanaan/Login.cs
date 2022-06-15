@@ -21,5 +21,13 @@ namespace sistemKebencanaan
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string uname = tb_username.Text;
+            string password = tb_password.Text;
+
+            MessageBox.Show("username : " + uname + "\npassword : " + password);
+        }
     }
 }
