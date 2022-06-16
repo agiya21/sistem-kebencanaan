@@ -195,12 +195,9 @@ namespace sistemKebencanaan
             /* Isi variabel dengan data dari Form */
             jenisBencana = cb_jenisBencana.Text;
             tanggalWaktu = dtp_waktuKejadian.Text;
-            //kecamatan = cb_kecamatan.Text;
-            //desaKelurahan = cb_desaKelurahan.Text;
+            kecamatan = cb_kecamatan.Text;
+            desaKelurahan = cb_desaKelurahan.Text;
             //dusunLingkungan = cb_dusunLingkungan.Text;
-            kecamatan = "";
-            desaKelurahan = "";
-            dusunLingkungan = "";
             alamat = rtb_alamat.Text;
             fasilitas = cb_fasilitas.Text;
             keteranganFasilitas = tb_keteranganFasilitas.Text;

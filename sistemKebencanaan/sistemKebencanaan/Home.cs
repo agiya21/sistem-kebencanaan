@@ -16,5 +16,16 @@ namespace sistemKebencanaan
         {
             InitializeComponent();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_insertData_Click(object sender, EventArgs e)
+        {
+            InsertData insertData = new InsertData();
+            insertData.ShowDialog();
+        }
     }
 }
