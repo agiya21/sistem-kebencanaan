@@ -37,6 +37,19 @@ namespace sistemKebencanaan
             tb_jumlahLukaRingan.KeyPress += new KeyPressEventHandler(tb_jumlahLukaRingan_KeyPress);
             tb_jumlahLukaBerat.KeyPress += new KeyPressEventHandler(tb_jumlahLukaBerat_KeyPress);
             tb_jumlahMeninggal.KeyPress += new KeyPressEventHandler(tb_jumlahMeninggal_KeyPress);
+
+            
+        }
+
+        /* Handle Event untuk perubahan isi ComboBox kecamatan, Desa/Kelurahan, dan Dusun/Lingkungan */
+        private void cb_kecamatan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb_kecamatan = (ComboBox)sender;
+
+            if (cb_kecamatan.SelectedItem == "Kec A")
+            {
+                cb_desaKelurahan.Items.Add("Bababooey");
+            }
         }
 
         /* Event handler for numeric only textbox */
@@ -53,7 +66,7 @@ namespace sistemKebencanaan
         }
         private void tb_jumlahKk_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
@@ -64,7 +77,7 @@ namespace sistemKebencanaan
         }
         private void tb_jumlahLukaRingan_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
@@ -75,7 +88,7 @@ namespace sistemKebencanaan
         }
         private void tb_jumlahLukaBerat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
@@ -86,7 +99,7 @@ namespace sistemKebencanaan
         }
         private void tb_jumlahMeninggal_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
@@ -119,18 +132,75 @@ namespace sistemKebencanaan
             cb_tingkatKerusakan.Items.Add("Sedang (Kerusakan antara 20% s/d 50%)");
             cb_tingkatKerusakan.Items.Add("Berat (Kerusakan > 50%)");
 
+            /* Combo Box pilihan "Kecamatan" */
+            cb_kecamatan.Items.Add("Kec A");
+            cb_kecamatan.Items.Add("Kec B");
+            cb_kecamatan.Items.Add("Kec C");
+
+            /* Combo Box pilihan "Desa/Kelurahan" */
+            if(cb_kecamatan.Text == "Kec A")
+            {
+                cb_desaKelurahan.Items.Add("DesKel A1");
+                cb_desaKelurahan.Items.Add("DesKel A2");
+                cb_desaKelurahan.Items.Add("DesKel A3");
+
+            }else if (cb_kecamatan.Text == "Kec B")
+            {
+                cb_desaKelurahan.Items.Add("DesKel B1");
+                cb_desaKelurahan.Items.Add("DesKel B2");
+            }
+            else if (cb_kecamatan.Text == "Kec C")
+            {
+                cb_desaKelurahan.Items.Add("DesKel C1");
+            }
+
+            /* Combo Box pilihan "Dusun/Lingkungan" */
+            if(cb_desaKelurahan.Text == "DesKel A1")
+            {
+                cb_dusunLingkungan.Items.Add("DusLing A1");
+            }else if (cb_dusunLingkungan.Text == "DesKel A2")
+            {
+                cb_dusunLingkungan.Items.Add("DusLing B1");
+            }
 
         }
 
-        /* Submit Data */
+
+
+        /* Submit Data with Submit Button*/
         private void btn_submitInsertData_Click(object sender, EventArgs e)
         {
+            /* Set Default value for numeric textbox */
+            if (string.IsNullOrEmpty(tb_jumlahKk.Text))
+            {
+                tb_jumlahKk.Text = "0";
+            }
+            if (string.IsNullOrEmpty(tb_jumlahKorban.Text))
+            {
+                tb_jumlahKorban.Text = "0";
+            }
+            if (string.IsNullOrEmpty(tb_jumlahLukaRingan.Text))
+            {
+                tb_jumlahLukaRingan.Text = "0";
+            }
+            if (string.IsNullOrEmpty(tb_jumlahLukaBerat.Text))
+            {
+                tb_jumlahLukaBerat.Text = "0";
+            }
+            if (string.IsNullOrEmpty(tb_jumlahMeninggal.Text))
+            {
+                tb_jumlahMeninggal.Text = "0";
+            }
+
             /* Isi variabel dengan data dari Form */
             jenisBencana = cb_jenisBencana.Text;
             tanggalWaktu = dtp_waktuKejadian.Text;
-            kecamatan = cb_kecamatan.Text;
-            desaKelurahan = cb_desaKelurahan.Text;
-            dusunLingkungan = cb_dusunLingkungan.Text;
+            //kecamatan = cb_kecamatan.Text;
+            //desaKelurahan = cb_desaKelurahan.Text;
+            //dusunLingkungan = cb_dusunLingkungan.Text;
+            kecamatan = "";
+            desaKelurahan = "";
+            dusunLingkungan = "";
             alamat = rtb_alamat.Text;
             fasilitas = cb_fasilitas.Text;
             keteranganFasilitas = tb_keteranganFasilitas.Text;
@@ -150,23 +220,38 @@ namespace sistemKebencanaan
             jumlahLukaRingan = Int32.Parse(tb_jumlahLukaRingan.Text);
             jumlahLukaBerat = Int32.Parse(tb_jumlahLukaBerat.Text);
             jumlahMeninggal = Int32.Parse(tb_jumlahMeninggal.Text);
-            
 
-            /* Tampilkan data yang di Insert */
-            MessageBox.Show("Bencana: " + jenisBencana + 
-                            "\nTanggal: " + tanggalWaktu.Substring(0,10) +
-                            "\nWaktu: " + tanggalWaktu.Substring(11,8) +
-                            "\nKecamatan: " + kecamatan + 
-                            "\nDesa/Kelurahan: " + desaKelurahan + 
-                            "\nDusun/Lingkungan: " + dusunLingkungan +
-                            "\nFasilitas: " + fasilitas + 
-                            "\nKeterangan Fasilitas: " + keteranganFasilitas + 
-                            "\nTingkat Kerusakan: " + tingkatKerusakan + 
-                            "\nJumlah KK: " + jumlahKk + 
-                            "\nJumlah Korban: " + jumlahKorban + 
-                            "\nJumlah Korban Luka Ringan: " + jumlahLukaRingan + 
-                            "\nJumlah Korban Luka Berat: " + jumlahLukaBerat + 
-                            "\nJumlah Korban Meninggal: " + jumlahMeninggal);
+            /* Tampilkan Validation Box */
+            string title_validation = "Insert Data";
+            string mess_validation = "Apakah data yang telah anda input yakin sudah benar?\n" +
+                "(Data yang telah anda masukkan tidak akan bisa diedit kembali. Anda dapat mengajukan perubahan data ke petugas)";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+
+            DialogResult result = MessageBox.Show(mess_validation, title_validation, buttons);
+            if (result.Equals(DialogResult.Yes))
+            {
+                /* Tampilkan data yang di Insert */
+                MessageBox.Show("Bencana: " + jenisBencana +
+                                "\nTanggal: " + tanggalWaktu.Substring(0, 10) +
+                                "\nWaktu: " + tanggalWaktu.Substring(11, 8) +
+                                "\nKecamatan: " + kecamatan +
+                                "\nDesa/Kelurahan: " + desaKelurahan +
+                                "\nDusun/Lingkungan: " + dusunLingkungan +
+                                "\nFasilitas: " + fasilitas +
+                                "\nKeterangan Fasilitas: " + keteranganFasilitas +
+                                "\nTingkat Kerusakan: " + tingkatKerusakan +
+                                "\nJumlah KK: " + jumlahKk +
+                                "\nJumlah Korban: " + jumlahKorban +
+                                "\nJumlah Korban Luka Ringan: " + jumlahLukaRingan +
+                                "\nJumlah Korban Luka Berat: " + jumlahLukaBerat +
+                                "\nJumlah Korban Meninggal: " + jumlahMeninggal);
+                this.Close();
+            }
+            else
+            {
+                // Do Nothing, back to "Insert Data" Form
+            }
+            
         }
     }
 }

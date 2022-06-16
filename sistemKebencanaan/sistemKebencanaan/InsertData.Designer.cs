@@ -64,34 +64,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(214, 30);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(148, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(257, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Insert Data";
+            this.label1.Text = "Insert Data Kebencanaan";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(82, 92);
+            this.label2.Location = new System.Drawing.Point(82, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Jenis Bencana";
+            this.label2.Text = "Jenis Bencana :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 123);
+            this.label3.Location = new System.Drawing.Point(82, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Waktu Kejadian";
+            this.label3.Text = "Waktu Kejadian :";
             // 
             // cb_jenisBencana
             // 
             this.cb_jenisBencana.FormattingEnabled = true;
-            this.cb_jenisBencana.Location = new System.Drawing.Point(218, 89);
+            this.cb_jenisBencana.Location = new System.Drawing.Point(218, 71);
             this.cb_jenisBencana.Name = "cb_jenisBencana";
             this.cb_jenisBencana.Size = new System.Drawing.Size(142, 21);
             this.cb_jenisBencana.TabIndex = 3;
@@ -100,7 +101,7 @@
             // 
             this.dtp_waktuKejadian.CustomFormat = "dd/MM/yyyy hh:mm:ss";
             this.dtp_waktuKejadian.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_waktuKejadian.Location = new System.Drawing.Point(217, 117);
+            this.dtp_waktuKejadian.Location = new System.Drawing.Point(217, 99);
             this.dtp_waktuKejadian.Name = "dtp_waktuKejadian";
             this.dtp_waktuKejadian.Size = new System.Drawing.Size(142, 20);
             this.dtp_waktuKejadian.TabIndex = 4;
@@ -108,42 +109,43 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 150);
+            this.label4.Location = new System.Drawing.Point(82, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Lokasi:";
+            this.label4.Text = "Lokasi :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(98, 168);
+            this.label5.Location = new System.Drawing.Point(98, 150);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Kecamatan";
+            this.label5.Text = "Kecamatan :";
             // 
             // cb_kecamatan
             // 
             this.cb_kecamatan.FormattingEnabled = true;
-            this.cb_kecamatan.Location = new System.Drawing.Point(217, 164);
+            this.cb_kecamatan.Location = new System.Drawing.Point(217, 146);
             this.cb_kecamatan.Name = "cb_kecamatan";
             this.cb_kecamatan.Size = new System.Drawing.Size(142, 21);
             this.cb_kecamatan.TabIndex = 7;
+            this.cb_kecamatan.SelectedIndexChanged += new System.EventHandler(this.cb_kecamatan_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(98, 196);
+            this.label6.Location = new System.Drawing.Point(98, 178);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Desa/Kelurahan";
+            this.label6.Text = "Desa/Kelurahan :";
             // 
             // cb_desaKelurahan
             // 
             this.cb_desaKelurahan.FormattingEnabled = true;
-            this.cb_desaKelurahan.Location = new System.Drawing.Point(217, 192);
+            this.cb_desaKelurahan.Location = new System.Drawing.Point(217, 174);
             this.cb_desaKelurahan.Name = "cb_desaKelurahan";
             this.cb_desaKelurahan.Size = new System.Drawing.Size(142, 21);
             this.cb_desaKelurahan.TabIndex = 9;
@@ -151,16 +153,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(98, 224);
+            this.label7.Location = new System.Drawing.Point(98, 206);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 13);
+            this.label7.Size = new System.Drawing.Size(105, 13);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Dusun/Lingkungan";
+            this.label7.Text = "Dusun/Lingkungan :";
             // 
             // cb_dusunLingkungan
             // 
             this.cb_dusunLingkungan.FormattingEnabled = true;
-            this.cb_dusunLingkungan.Location = new System.Drawing.Point(217, 220);
+            this.cb_dusunLingkungan.Location = new System.Drawing.Point(217, 202);
             this.cb_dusunLingkungan.Name = "cb_dusunLingkungan";
             this.cb_dusunLingkungan.Size = new System.Drawing.Size(142, 21);
             this.cb_dusunLingkungan.TabIndex = 11;
@@ -168,15 +170,15 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(98, 251);
+            this.label8.Location = new System.Drawing.Point(98, 233);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Alamat";
+            this.label8.Text = "Alamat :";
             // 
             // rtb_alamat
             // 
-            this.rtb_alamat.Location = new System.Drawing.Point(217, 248);
+            this.rtb_alamat.Location = new System.Drawing.Point(217, 230);
             this.rtb_alamat.Name = "rtb_alamat";
             this.rtb_alamat.Size = new System.Drawing.Size(228, 96);
             this.rtb_alamat.TabIndex = 13;
@@ -185,16 +187,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(82, 355);
+            this.label9.Location = new System.Drawing.Point(82, 337);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Fasilitas";
+            this.label9.Text = "Fasilitas :";
             // 
             // cb_fasilitas
             // 
             this.cb_fasilitas.FormattingEnabled = true;
-            this.cb_fasilitas.Location = new System.Drawing.Point(217, 352);
+            this.cb_fasilitas.Location = new System.Drawing.Point(217, 334);
             this.cb_fasilitas.Name = "cb_fasilitas";
             this.cb_fasilitas.Size = new System.Drawing.Size(142, 21);
             this.cb_fasilitas.TabIndex = 15;
@@ -202,16 +204,16 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(82, 410);
+            this.label10.Location = new System.Drawing.Point(82, 392);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.Size = new System.Drawing.Size(103, 13);
             this.label10.TabIndex = 16;
-            this.label10.Text = "Tingkat Kerusakan";
+            this.label10.Text = "Tingkat Kerusakan :";
             // 
             // cb_tingkatKerusakan
             // 
             this.cb_tingkatKerusakan.FormattingEnabled = true;
-            this.cb_tingkatKerusakan.Location = new System.Drawing.Point(217, 407);
+            this.cb_tingkatKerusakan.Location = new System.Drawing.Point(217, 389);
             this.cb_tingkatKerusakan.Name = "cb_tingkatKerusakan";
             this.cb_tingkatKerusakan.Size = new System.Drawing.Size(143, 21);
             this.cb_tingkatKerusakan.TabIndex = 17;
@@ -219,86 +221,91 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(82, 442);
+            this.label11.Location = new System.Drawing.Point(82, 424);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.Size = new System.Drawing.Size(63, 13);
             this.label11.TabIndex = 18;
-            this.label11.Text = "Jumlah KK";
+            this.label11.Text = "Jumlah KK :";
             // 
             // tb_jumlahKk
             // 
-            this.tb_jumlahKk.Location = new System.Drawing.Point(217, 439);
+            this.tb_jumlahKk.Location = new System.Drawing.Point(217, 421);
             this.tb_jumlahKk.Name = "tb_jumlahKk";
             this.tb_jumlahKk.Size = new System.Drawing.Size(142, 20);
             this.tb_jumlahKk.TabIndex = 19;
+            this.tb_jumlahKk.Text = "0";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(82, 473);
+            this.label12.Location = new System.Drawing.Point(82, 455);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
+            this.label12.Size = new System.Drawing.Size(83, 13);
             this.label12.TabIndex = 20;
-            this.label12.Text = "Jumlah Korban";
+            this.label12.Text = "Jumlah Korban :";
             // 
             // tb_jumlahKorban
             // 
-            this.tb_jumlahKorban.Location = new System.Drawing.Point(217, 470);
+            this.tb_jumlahKorban.Location = new System.Drawing.Point(217, 452);
             this.tb_jumlahKorban.Name = "tb_jumlahKorban";
             this.tb_jumlahKorban.Size = new System.Drawing.Size(142, 20);
             this.tb_jumlahKorban.TabIndex = 21;
+            this.tb_jumlahKorban.Text = "0";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(93, 501);
+            this.label13.Location = new System.Drawing.Point(93, 483);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 13);
+            this.label13.Size = new System.Drawing.Size(110, 13);
             this.label13.TabIndex = 22;
-            this.label13.Text = "Jumlah Luka Ringan";
+            this.label13.Text = "Jumlah Luka Ringan :";
             // 
             // tb_jumlahLukaRingan
             // 
-            this.tb_jumlahLukaRingan.Location = new System.Drawing.Point(217, 496);
+            this.tb_jumlahLukaRingan.Location = new System.Drawing.Point(217, 478);
             this.tb_jumlahLukaRingan.Name = "tb_jumlahLukaRingan";
             this.tb_jumlahLukaRingan.Size = new System.Drawing.Size(142, 20);
             this.tb_jumlahLukaRingan.TabIndex = 23;
+            this.tb_jumlahLukaRingan.Text = "0";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(93, 525);
+            this.label14.Location = new System.Drawing.Point(93, 507);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 13);
+            this.label14.Size = new System.Drawing.Size(101, 13);
             this.label14.TabIndex = 24;
-            this.label14.Text = "Jumlah Luka Berat";
+            this.label14.Text = "Jumlah Luka Berat :";
             // 
             // tb_jumlahLukaBerat
             // 
-            this.tb_jumlahLukaBerat.Location = new System.Drawing.Point(217, 522);
+            this.tb_jumlahLukaBerat.Location = new System.Drawing.Point(217, 504);
             this.tb_jumlahLukaBerat.Name = "tb_jumlahLukaBerat";
             this.tb_jumlahLukaBerat.Size = new System.Drawing.Size(142, 20);
             this.tb_jumlahLukaBerat.TabIndex = 25;
+            this.tb_jumlahLukaBerat.Text = "0";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(93, 551);
+            this.label15.Location = new System.Drawing.Point(93, 533);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(92, 13);
+            this.label15.Size = new System.Drawing.Size(98, 13);
             this.label15.TabIndex = 26;
-            this.label15.Text = "Jumlah Meninggal";
+            this.label15.Text = "Jumlah Meninggal :";
             // 
             // tb_jumlahMeninggal
             // 
-            this.tb_jumlahMeninggal.Location = new System.Drawing.Point(217, 548);
+            this.tb_jumlahMeninggal.Location = new System.Drawing.Point(217, 530);
             this.tb_jumlahMeninggal.Name = "tb_jumlahMeninggal";
             this.tb_jumlahMeninggal.Size = new System.Drawing.Size(142, 20);
             this.tb_jumlahMeninggal.TabIndex = 27;
+            this.tb_jumlahMeninggal.Text = "0";
             // 
             // btn_submitInsertData
             // 
-            this.btn_submitInsertData.Location = new System.Drawing.Point(217, 585);
+            this.btn_submitInsertData.Location = new System.Drawing.Point(217, 567);
             this.btn_submitInsertData.Name = "btn_submitInsertData";
             this.btn_submitInsertData.Size = new System.Drawing.Size(110, 43);
             this.btn_submitInsertData.TabIndex = 28;
@@ -309,15 +316,15 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(82, 383);
+            this.label16.Location = new System.Drawing.Point(82, 365);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 13);
+            this.label16.Size = new System.Drawing.Size(108, 13);
             this.label16.TabIndex = 29;
-            this.label16.Text = "Keterangan Fasilitas";
+            this.label16.Text = "Keterangan Fasilitas :";
             // 
             // tb_keteranganFasilitas
             // 
-            this.tb_keteranganFasilitas.Location = new System.Drawing.Point(217, 380);
+            this.tb_keteranganFasilitas.Location = new System.Drawing.Point(217, 362);
             this.tb_keteranganFasilitas.Name = "tb_keteranganFasilitas";
             this.tb_keteranganFasilitas.Size = new System.Drawing.Size(142, 20);
             this.tb_keteranganFasilitas.TabIndex = 30;
