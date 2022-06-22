@@ -22,3 +22,4 @@ E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\
 E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.exe
 E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.pdb
 E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Home.resources
+E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.EditData.resources
