@@ -24,10 +24,29 @@ namespace sistemKebencanaan
             // connString: Sesuaikan server dan database nya dengan yang ada di sistem aslinya
             string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             //SQLDataAdapter untuk select semua data dari tabel master sistem informasi kebencanaan
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM kecamatan_tm",connString);
+
+            string selectAllQuery = "SELECT a.tanggal AS Tanggal, " +
+                "a.waktu as Waktu, " +
+                "a.jenis_bencana as [Jenis Bencana], " +
+                "a.kecamatan as Kecamatan, " +
+                "a.desa_kelurahan as [Desa/Kelurahan], " +
+                "a.dusun_lingkungan as [Dusun/Lingkungan], " +
+                "a.alamat as Alamat, " +
+                "a.fasilitas as Fasilitas, " +
+                "a.tingkat_kerusakan as [Tingkat Kerusakan], " +
+                "a.jumlah_kk as [Jumlah KK], " +
+                "a.jumlah_korban as [Jumlah Korban], " +
+                "a.jumlah_lukaringan as [Jumlah Korban Luka Ringan], " +
+                "a.jumlah_lukaberat as [Jumlah Korban Luka Berat], " +
+                "a.jumlah_meninggal as [Jumlah Korban Meninggal], " +
+                "b.username as Penginput " +
+                "FROM sikdeliserdang a JOIN sik_users_petugas_tm b ON a.userid_inputter = b.id_user " +
+                "WHERE b.username = '" + Login.uname + "'";
+
+            SqlDataAdapter da = new SqlDataAdapter(selectAllQuery,connString);
             DataSet ds = new DataSet();
-            da.Fill(ds,"kecamatan_tm");
-            dataGridView1.DataSource = ds.Tables["kecamatan_tm"].DefaultView;
+            da.Fill(ds,"data_kebencanaan");
+            dataGridView1.DataSource = ds.Tables["data_kebencanaan"].DefaultView;
         }
 
         private void btn_insertData_Click(object sender, EventArgs e)
