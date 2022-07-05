@@ -36,6 +36,9 @@ namespace sistemKebencanaan
                 "a.tingkat_kerusakan as [Tingkat Kerusakan], " +
                 "a.jumlah_kk as [Jumlah KK], " +
                 "a.jumlah_korban as [Jumlah Korban], " +
+                "a.jumlah_korban_anak as [Jumlah Korban Anak], " +
+                "a.jumlah_korban_dewasa as [Jumlah Korban Dewasa], " +
+                "a.jumlah_korban_lansia as [Jumlah Korban Lansia], " +
                 "a.jumlah_lukaringan as [Jumlah Korban Luka Ringan], " +
                 "a.jumlah_lukaberat as [Jumlah Korban Luka Berat], " +
                 "a.jumlah_meninggal as [Jumlah Korban Meninggal], " +

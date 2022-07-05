@@ -62,7 +62,7 @@ namespace sistemKebencanaan
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username or Password!");
+                    MessageBox.Show("Invalid Username or Password!", "Warning");
                 }
 
             }
