@@ -28,7 +28,8 @@ namespace sistemKebencanaan
                 jumlahLukaRingan,
                 jumlahLukaBerat,
                 jumlahMeninggal;
-        
+
+
 
         public InsertData()
         {
@@ -42,7 +43,10 @@ namespace sistemKebencanaan
             
         }
 
+
+
         /* Handle Event untuk perubahan isi ComboBox Desa/Kelurahan, dan Dusun/Lingkungan */
+        /* ComboBox Desa/Kelurahan */
         private void cb_kecamatan_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb_kecamatan = (ComboBox)sender;
@@ -59,303 +63,65 @@ namespace sistemKebencanaan
                 cmd.CommandText = idKecamatanQuery;
                 string idKec = (string)cmd.ExecuteScalar();
 
-                SqlCommand cmdDesKel;
-                string itemDesaKelurahanQuery = "SELECT nama_desakelurahan FROM desa_kelurahan_tm WHERE id_kecamatan = '" + idKec + "'";
-                SqlDataReader dr;
-
-                switch (idKec)
-                {
-                    case "A01":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-                        cb_desaKelurahan.Items.Clear();
-
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A02":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A03":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A04":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A05":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A06":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A07":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A08":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A09":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A10":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A11":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A12":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A13":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A14":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A15":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A16":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A17":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A18":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A19":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A20":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A21":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    case "A22":
-                        cmdDesKel = new SqlCommand(itemDesaKelurahanQuery, conn);
-                        //cmdDesKel.Connection.Open();
-
-                        cmdDesKel.CommandText = itemDesaKelurahanQuery;
-                        dr = cmdDesKel.ExecuteReader();
-
-                        cb_desaKelurahan.Items.Clear();
-                        while (dr.Read())
-                        {
-                            cb_desaKelurahan.Items.Add((string)dr["nama_desakelurahan"]);
-                        }
-                        break;
-                    default:
-                        cb_desaKelurahan.Items.Add("");
-                        break;
-                }
+                refreshItemDesaKelurahan(idKec);
             }
+        }
+
+        private void cb_desaKelurahan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_desaKelurahan.SelectedValue.ToString() != null)
+            {
+                string kodeDesaKelurahan = (string)cb_desaKelurahan.SelectedValue.ToString();
+                refreshItemDusunLingkugan(kodeDesaKelurahan);
+
+            }
+        }
+
+        /* ComboBox Desa/Kelurahan */
+        private void refreshItemDesaKelurahan(string kodeKecamatan)
+        {
+            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            SqlConnection con = new SqlConnection(connString);
+            DataRow dr;
+
+            con.Open();
+            SqlCommand cmdDesKel = new SqlCommand("SELECT * FROM desa_kelurahan_tm WHERE id_kecamatan = @kodeKecamatan", con);
+            cmdDesKel.Parameters.AddWithValue("kodeKecamatan", kodeKecamatan);
+            SqlDataAdapter sda = new SqlDataAdapter(cmdDesKel);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            dr = dt.NewRow();
+            dr.ItemArray = new object[] { 0, "--Pilih Desa/Kelurahan--" };
+            dt.Rows.InsertAt(dr, 0);
+
+            cb_desaKelurahan.ValueMember = "id_desakelurahan";
+            cb_desaKelurahan.DisplayMember = "nama_desakelurahan";
+            cb_desaKelurahan.DataSource = dt;
+
+        }
+
+        /* ComboBox Dusun Lingkungan */
+        private void refreshItemDusunLingkugan(string kodeDesaKelurahan)
+        {
+            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            SqlConnection con = new SqlConnection(connString);
+            DataRow dr;
+
+            con.Open();
+            SqlCommand cmdDusLing = new SqlCommand("SELECT * FROM dusun_lingkungan_tm WHERE id_desaKelurahan = @kodeDesaKelurahan", con);
+            cmdDusLing.Parameters.AddWithValue("kodeDesaKelurahan", kodeDesaKelurahan);
+            SqlDataAdapter sda = new SqlDataAdapter(cmdDusLing);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            dr = dt.NewRow();
+            dr.ItemArray = new object[] { 0, "--Pilih Dusun/Lingkungan--" };
+            dt.Rows.InsertAt(dr, 0);
+
+            cb_dusunLingkungan.ValueMember = "id_dusunlingkungan";
+            cb_dusunLingkungan.DisplayMember = "nama_dusunlingkungan";
+            cb_dusunLingkungan.DataSource = dt;
         }
 
         /* Event handler for numeric only textbox */
@@ -413,11 +179,6 @@ namespace sistemKebencanaan
             {
                 e.Handled = true;
             }
-        }
-
-        private void AddComboBoxItemDesaKelurahan(string kodeKecamatan)
-        {
-
         }
 
 

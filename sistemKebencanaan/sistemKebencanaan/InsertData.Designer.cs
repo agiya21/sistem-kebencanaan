@@ -94,7 +94,7 @@
             this.cb_jenisBencana.FormattingEnabled = true;
             this.cb_jenisBencana.Location = new System.Drawing.Point(218, 71);
             this.cb_jenisBencana.Name = "cb_jenisBencana";
-            this.cb_jenisBencana.Size = new System.Drawing.Size(142, 21);
+            this.cb_jenisBencana.Size = new System.Drawing.Size(187, 21);
             this.cb_jenisBencana.TabIndex = 3;
             // 
             // dtp_waktuKejadian
@@ -103,7 +103,7 @@
             this.dtp_waktuKejadian.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_waktuKejadian.Location = new System.Drawing.Point(217, 99);
             this.dtp_waktuKejadian.Name = "dtp_waktuKejadian";
-            this.dtp_waktuKejadian.Size = new System.Drawing.Size(142, 20);
+            this.dtp_waktuKejadian.Size = new System.Drawing.Size(188, 20);
             this.dtp_waktuKejadian.TabIndex = 4;
             // 
             // label4
@@ -129,7 +129,7 @@
             this.cb_kecamatan.FormattingEnabled = true;
             this.cb_kecamatan.Location = new System.Drawing.Point(217, 146);
             this.cb_kecamatan.Name = "cb_kecamatan";
-            this.cb_kecamatan.Size = new System.Drawing.Size(142, 21);
+            this.cb_kecamatan.Size = new System.Drawing.Size(188, 21);
             this.cb_kecamatan.TabIndex = 7;
             this.cb_kecamatan.SelectedIndexChanged += new System.EventHandler(this.cb_kecamatan_SelectedIndexChanged);
             // 
@@ -147,8 +147,9 @@
             this.cb_desaKelurahan.FormattingEnabled = true;
             this.cb_desaKelurahan.Location = new System.Drawing.Point(217, 174);
             this.cb_desaKelurahan.Name = "cb_desaKelurahan";
-            this.cb_desaKelurahan.Size = new System.Drawing.Size(142, 21);
+            this.cb_desaKelurahan.Size = new System.Drawing.Size(188, 21);
             this.cb_desaKelurahan.TabIndex = 9;
+            this.cb_desaKelurahan.SelectedIndexChanged += new System.EventHandler(this.cb_desaKelurahan_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -164,7 +165,7 @@
             this.cb_dusunLingkungan.FormattingEnabled = true;
             this.cb_dusunLingkungan.Location = new System.Drawing.Point(217, 202);
             this.cb_dusunLingkungan.Name = "cb_dusunLingkungan";
-            this.cb_dusunLingkungan.Size = new System.Drawing.Size(142, 21);
+            this.cb_dusunLingkungan.Size = new System.Drawing.Size(188, 21);
             this.cb_dusunLingkungan.TabIndex = 11;
             // 
             // label8
@@ -198,7 +199,7 @@
             this.cb_fasilitas.FormattingEnabled = true;
             this.cb_fasilitas.Location = new System.Drawing.Point(217, 334);
             this.cb_fasilitas.Name = "cb_fasilitas";
-            this.cb_fasilitas.Size = new System.Drawing.Size(142, 21);
+            this.cb_fasilitas.Size = new System.Drawing.Size(188, 21);
             this.cb_fasilitas.TabIndex = 15;
             // 
             // label10
@@ -215,7 +216,7 @@
             this.cb_tingkatKerusakan.FormattingEnabled = true;
             this.cb_tingkatKerusakan.Location = new System.Drawing.Point(217, 389);
             this.cb_tingkatKerusakan.Name = "cb_tingkatKerusakan";
-            this.cb_tingkatKerusakan.Size = new System.Drawing.Size(143, 21);
+            this.cb_tingkatKerusakan.Size = new System.Drawing.Size(188, 21);
             this.cb_tingkatKerusakan.TabIndex = 17;
             // 
             // label11
@@ -231,7 +232,7 @@
             // 
             this.tb_jumlahKk.Location = new System.Drawing.Point(217, 421);
             this.tb_jumlahKk.Name = "tb_jumlahKk";
-            this.tb_jumlahKk.Size = new System.Drawing.Size(142, 20);
+            this.tb_jumlahKk.Size = new System.Drawing.Size(188, 20);
             this.tb_jumlahKk.TabIndex = 19;
             this.tb_jumlahKk.Text = "0";
             // 
@@ -248,7 +249,7 @@
             // 
             this.tb_jumlahKorban.Location = new System.Drawing.Point(217, 452);
             this.tb_jumlahKorban.Name = "tb_jumlahKorban";
-            this.tb_jumlahKorban.Size = new System.Drawing.Size(142, 20);
+            this.tb_jumlahKorban.Size = new System.Drawing.Size(188, 20);
             this.tb_jumlahKorban.TabIndex = 21;
             this.tb_jumlahKorban.Text = "0";
             // 
@@ -265,7 +266,7 @@
             // 
             this.tb_jumlahLukaRingan.Location = new System.Drawing.Point(217, 478);
             this.tb_jumlahLukaRingan.Name = "tb_jumlahLukaRingan";
-            this.tb_jumlahLukaRingan.Size = new System.Drawing.Size(142, 20);
+            this.tb_jumlahLukaRingan.Size = new System.Drawing.Size(188, 20);
             this.tb_jumlahLukaRingan.TabIndex = 23;
             this.tb_jumlahLukaRingan.Text = "0";
             // 
@@ -282,7 +283,7 @@
             // 
             this.tb_jumlahLukaBerat.Location = new System.Drawing.Point(217, 504);
             this.tb_jumlahLukaBerat.Name = "tb_jumlahLukaBerat";
-            this.tb_jumlahLukaBerat.Size = new System.Drawing.Size(142, 20);
+            this.tb_jumlahLukaBerat.Size = new System.Drawing.Size(188, 20);
             this.tb_jumlahLukaBerat.TabIndex = 25;
             this.tb_jumlahLukaBerat.Text = "0";
             // 
@@ -299,7 +300,7 @@
             // 
             this.tb_jumlahMeninggal.Location = new System.Drawing.Point(217, 530);
             this.tb_jumlahMeninggal.Name = "tb_jumlahMeninggal";
-            this.tb_jumlahMeninggal.Size = new System.Drawing.Size(142, 20);
+            this.tb_jumlahMeninggal.Size = new System.Drawing.Size(188, 20);
             this.tb_jumlahMeninggal.TabIndex = 27;
             this.tb_jumlahMeninggal.Text = "0";
             // 
@@ -326,7 +327,7 @@
             // 
             this.tb_keteranganFasilitas.Location = new System.Drawing.Point(217, 362);
             this.tb_keteranganFasilitas.Name = "tb_keteranganFasilitas";
-            this.tb_keteranganFasilitas.Size = new System.Drawing.Size(142, 20);
+            this.tb_keteranganFasilitas.Size = new System.Drawing.Size(188, 20);
             this.tb_keteranganFasilitas.TabIndex = 30;
             // 
             // InsertData
