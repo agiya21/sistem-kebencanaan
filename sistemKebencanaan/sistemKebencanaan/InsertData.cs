@@ -25,16 +25,19 @@ namespace sistemKebencanaan
 
         int     jumlahKk,
                 jumlahKorban,
+                jumlahKorbanAnak,
+                jumlahKorbanDewasa,
+                jumlahKorbanLansia,
                 jumlahLukaRingan,
                 jumlahLukaBerat,
                 jumlahMeninggal;
 
-
-
         public InsertData()
         {
             InitializeComponent();
-            tb_jumlahKorban.KeyPress += new KeyPressEventHandler(tb_jumlahKorban_KeyPress);
+            tb_jumlahKorbanAnak.KeyPress += new KeyPressEventHandler(tb_jumlahKorbanAnak_KeyPress);
+            tb_jumlahKorbanDewasa.KeyPress += new KeyPressEventHandler(tb_jumlahKorbanDewasa_KeyPress);
+            tb_jumlahKorbanLansia.KeyPress += new KeyPressEventHandler(tb_jumlahKorbanLansia_KeyPress);
             tb_jumlahKk.KeyPress += new KeyPressEventHandler(tb_jumlahKk_KeyPress);
             tb_jumlahLukaRingan.KeyPress += new KeyPressEventHandler(tb_jumlahLukaRingan_KeyPress);
             tb_jumlahLukaBerat.KeyPress += new KeyPressEventHandler(tb_jumlahLukaBerat_KeyPress);
@@ -181,6 +184,42 @@ namespace sistemKebencanaan
             }
         }
 
+        private void tb_jumlahKorbanAnak_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_jumlahKorbanDewasa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_jumlahKorbanLansia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
 
         /* Load "Insert Data" Form content */
         private void InsertData_Load(object sender, EventArgs e)
@@ -236,10 +275,6 @@ namespace sistemKebencanaan
             {
                 tb_jumlahKk.Text = "0";
             }
-            if (string.IsNullOrEmpty(tb_jumlahKorban.Text))
-            {
-                tb_jumlahKorban.Text = "0";
-            }
             if (string.IsNullOrEmpty(tb_jumlahLukaRingan.Text))
             {
                 tb_jumlahLukaRingan.Text = "0";
@@ -252,13 +287,25 @@ namespace sistemKebencanaan
             {
                 tb_jumlahMeninggal.Text = "0";
             }
+            if (string.IsNullOrEmpty(tb_jumlahKorbanAnak.Text))
+            {
+                tb_jumlahKorbanAnak.Text = "0";
+            }
+            if (string.IsNullOrEmpty(tb_jumlahKorbanDewasa.Text))
+            {
+                tb_jumlahKorbanDewasa.Text = "0";
+            }
+            if (string.IsNullOrEmpty(tb_jumlahKorbanLansia.Text))
+            {
+                tb_jumlahKorbanLansia.Text = "0";
+            }
 
             /* Isi variabel dengan data dari Form */
             jenisBencana = cb_jenisBencana.Text;
             tanggalWaktu = dtp_waktuKejadian.Text;
             kecamatan = cb_kecamatan.Text;
             desaKelurahan = cb_desaKelurahan.Text;
-            //dusunLingkungan = cb_dusunLingkungan.Text;
+            dusunLingkungan = cb_dusunLingkungan.Text;
             alamat = rtb_alamat.Text;
             fasilitas = cb_fasilitas.Text;
             keteranganFasilitas = tb_keteranganFasilitas.Text;
@@ -274,7 +321,10 @@ namespace sistemKebencanaan
                 tingkatKerusakan = "Berat";
             }
             jumlahKk = Int32.Parse(tb_jumlahKk.Text);
-            jumlahKorban = Int32.Parse(tb_jumlahKorban.Text);
+            jumlahKorbanAnak = Int32.Parse(tb_jumlahKorbanAnak.Text);
+            jumlahKorbanDewasa = Int32.Parse(tb_jumlahKorbanDewasa.Text);
+            jumlahKorbanLansia = Int32.Parse(tb_jumlahKorbanLansia.Text);
+            jumlahKorban = jumlahKorbanAnak + jumlahKorbanDewasa + jumlahKorbanLansia;
             jumlahLukaRingan = Int32.Parse(tb_jumlahLukaRingan.Text);
             jumlahLukaBerat = Int32.Parse(tb_jumlahLukaBerat.Text);
             jumlahMeninggal = Int32.Parse(tb_jumlahMeninggal.Text);
@@ -300,9 +350,43 @@ namespace sistemKebencanaan
                                 "\nTingkat Kerusakan: " + tingkatKerusakan +
                                 "\nJumlah KK: " + jumlahKk +
                                 "\nJumlah Korban: " + jumlahKorban +
+                                "\nJumlah Korban Anak: " + jumlahKorbanAnak +
+                                "\nJumlah Korban Dewasa: " + jumlahKorbanDewasa +
+                                "\nJumlah Korban Lansia: " + jumlahKorbanLansia +
                                 "\nJumlah Korban Luka Ringan: " + jumlahLukaRingan +
                                 "\nJumlah Korban Luka Berat: " + jumlahLukaBerat +
-                                "\nJumlah Korban Meninggal: " + jumlahMeninggal);
+                                "\nJumlah Korban Meninggal: " + jumlahMeninggal +
+                                "\nInputter: " + Login.uname);
+                
+                string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    string insertDataQuery = "INSERT INTO sikdeliserdang SELECT '" +
+                        tanggalWaktu.Substring(0, 10) + "', '" +
+                        tanggalWaktu.Substring(11, 8) + "', '" +
+                        jenisBencana + "', '" +
+                        kecamatan + "', '" +
+                        desaKelurahan + "', '" +
+                        dusunLingkungan + "', '" +
+                        alamat + "', '" +
+                        fasilitas + "', '" +
+                        tingkatKerusakan + "', " +
+                        jumlahKk + ", " +
+                        jumlahKorban + ", " +
+                        jumlahLukaRingan + ", " +
+                        jumlahLukaBerat + ", " +
+                        jumlahMeninggal + ", id_user, " +
+                        jumlahKorbanAnak + ", " +
+                        jumlahKorbanDewasa + ", " +
+                        jumlahKorbanLansia + " FROM sik_users_petugas_tm WHERE username = '" + Login.uname + "' ";
+
+                    SqlCommand cmdInsertData = new SqlCommand(insertDataQuery, conn);
+                    cmdInsertData.Connection.Open();
+
+                    cmdInsertData.CommandText = insertDataQuery;
+                    cmdInsertData.ExecuteNonQuery();
+
+                }
                 this.Close();
             }
             else
