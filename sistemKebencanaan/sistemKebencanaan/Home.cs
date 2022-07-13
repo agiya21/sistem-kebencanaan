@@ -60,6 +60,7 @@ namespace sistemKebencanaan
             insertData.ShowDialog();
 
             // Refresh data server 
+            // test data changes
             connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             //SQLDataAdapter untuk select semua data dari tabel master sistem informasi kebencanaan
 
