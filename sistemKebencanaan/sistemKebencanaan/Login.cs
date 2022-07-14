@@ -26,7 +26,7 @@ namespace sistemKebencanaan
             string password = tb_password.Text;
 
             // Buat connection string untuk connect ke database
-            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 // Buat query untuk response code hasil SP User Login

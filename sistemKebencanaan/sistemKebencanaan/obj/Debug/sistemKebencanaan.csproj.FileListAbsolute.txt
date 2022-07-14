@@ -23,3 +23,17 @@ E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\
 E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.pdb
 E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Home.resources
 E:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.EditData.resources
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\bin\Debug\sistemKebencanaan.exe.config
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\bin\Debug\sistemKebencanaan.exe
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\bin\Debug\sistemKebencanaan.pdb
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.AssemblyReference.cache
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.SuggestedBindingRedirects.cache
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.EditData.resources
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Home.resources
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.InsertData.resources
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Login.resources
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Properties.Resources.resources
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.GenerateResource.cache
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.CoreCompileInputs.cache
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.exe
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.pdb

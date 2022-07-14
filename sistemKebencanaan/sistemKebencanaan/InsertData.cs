@@ -32,6 +32,8 @@ namespace sistemKebencanaan
                 jumlahLukaBerat,
                 jumlahMeninggal;
 
+
+
         public InsertData()
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace sistemKebencanaan
             ComboBox cb_kecamatan = (ComboBox)sender;
             string pilihanKecamatan = (string)cb_kecamatan.SelectedItem;
 
-            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string idKecamatanQuery = "SELECT id_kecamatan FROM kecamatan_tm WHERE nama_kecamatan = '" + pilihanKecamatan + "'";
@@ -83,7 +85,7 @@ namespace sistemKebencanaan
         /* ComboBox Desa/Kelurahan */
         private void refreshItemDesaKelurahan(string kodeKecamatan)
         {
-            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             SqlConnection con = new SqlConnection(connString);
             DataRow dr;
 
@@ -107,7 +109,7 @@ namespace sistemKebencanaan
         /* ComboBox Dusun Lingkungan */
         private void refreshItemDusunLingkugan(string kodeDesaKelurahan)
         {
-            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             SqlConnection con = new SqlConnection(connString);
             DataRow dr;
 
@@ -244,7 +246,7 @@ namespace sistemKebencanaan
             cb_tingkatKerusakan.Items.Add("Berat (Kerusakan > 50%)");
 
             /* Combo Box pilihan "Kecamatan" */
-            string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string callItemQuery = "SELECT nama_kecamatan FROM kecamatan_tm";
@@ -358,27 +360,28 @@ namespace sistemKebencanaan
                                 "\nJumlah Korban Meninggal: " + jumlahMeninggal +
                                 "\nInputter: " + Login.uname);
                 
-                string connString = "server = DESKTOP-FVOSJ6B\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+                string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    string insertDataQuery = "INSERT INTO sikdeliserdang SELECT '" +
-                        tanggalWaktu.Substring(0, 10) + "', '" +
-                        tanggalWaktu.Substring(11, 8) + "', '" +
-                        jenisBencana + "', '" +
-                        kecamatan + "', '" +
-                        desaKelurahan + "', '" +
-                        dusunLingkungan + "', '" +
-                        alamat + "', '" +
-                        fasilitas + "', '" +
-                        tingkatKerusakan + "', " +
-                        jumlahKk + ", " +
-                        jumlahKorban + ", " +
-                        jumlahLukaRingan + ", " +
-                        jumlahLukaBerat + ", " +
-                        jumlahMeninggal + ", id_user, " +
-                        jumlahKorbanAnak + ", " +
-                        jumlahKorbanDewasa + ", " +
-                        jumlahKorbanLansia + " FROM sik_users_petugas_tm WHERE username = '" + Login.uname + "' ";
+                    string insertDataQuery = "INSERT INTO sikdeliserdang SELECT " +
+                    "CONVERT(date, '" + tanggalWaktu.Substring(0, 10) + "', 103), '" +
+                    tanggalWaktu.Substring(11, 8) + "', '" +
+                    jenisBencana + "', '" +
+                    kecamatan + "', '" +
+                    desaKelurahan + "', '" +
+                    dusunLingkungan + "', '" +
+                    alamat + "', '" +
+                    fasilitas + "', '" +
+                    tingkatKerusakan + "', " +
+                    jumlahKk + ", " +
+                    jumlahKorban + ", " +
+                    jumlahKorbanAnak + ", " +
+                    jumlahKorbanDewasa + ", " +
+                    jumlahKorbanLansia + ", " +
+                    jumlahLukaRingan + ", " +
+                    jumlahLukaBerat + ", " +
+                    jumlahMeninggal + ", id_user FROM sik_users_petugas_tm WHERE username = '" + Login.uname + "' ";
+
 
                     SqlCommand cmdInsertData = new SqlCommand(insertDataQuery, conn);
                     cmdInsertData.Connection.Open();
