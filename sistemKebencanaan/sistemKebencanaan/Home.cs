@@ -53,22 +53,6 @@ namespace sistemKebencanaan
             da.Fill(ds,"data_kebencanaan");
             dataGridView1.DataSource = ds.Tables["data_kebencanaan"].DefaultView;
 
-            // Coba tambah tombol Edit dan Delete di DataGridView
-            // "Edit" Button
-            DataGridViewButtonColumn dbtn_edit = new DataGridViewButtonColumn();
-            dataGridView1.Columns.Add(dbtn_edit);
-            dbtn_edit.HeaderText = "Edit";
-            dbtn_edit.Text = "Edit";
-            dbtn_edit.Name = "btn_edit";
-            dbtn_edit.UseColumnTextForButtonValue = true;
-
-            // "Delete" Button
-            DataGridViewButtonColumn dbtn_delete = new DataGridViewButtonColumn();
-            dataGridView1.Columns.Add(dbtn_delete);
-            dbtn_delete.HeaderText = "Delete";
-            dbtn_delete.Text = "Delete";
-            dbtn_delete.Name = "btn_delete";
-            dbtn_delete.UseColumnTextForButtonValue = true;
         }
 
         private void btn_insertData_Click(object sender, EventArgs e)
@@ -78,7 +62,7 @@ namespace sistemKebencanaan
 
             // Refresh data server 
             // test data changes
-            connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             //SQLDataAdapter untuk select semua data dari tabel master sistem informasi kebencanaan
 
             selectAllQuery = "SELECT a.tanggal AS Tanggal, " +

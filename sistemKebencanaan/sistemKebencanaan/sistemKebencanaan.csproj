@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,12 @@
     </Compile>
     <Compile Include="EditData.Designer.cs">
       <DependentUpon>EditData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home_Petugas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home_Petugas.Designer.cs">
+      <DependentUpon>Home_Petugas.cs</DependentUpon>
     </Compile>
     <Compile Include="InsertData.cs">
       <SubType>Form</SubType>
@@ -74,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EditData.resx">
       <DependentUpon>EditData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home_Petugas.resx">
+      <DependentUpon>Home_Petugas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

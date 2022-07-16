@@ -37,3 +37,4 @@ D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\
 D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.csproj.CoreCompileInputs.cache
 D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.exe
 D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.pdb
+D:\sistemKebencanaan\sistem-kebencanaan\sistemKebencanaan\sistemKebencanaan\obj\Debug\sistemKebencanaan.Home_Petugas.resources

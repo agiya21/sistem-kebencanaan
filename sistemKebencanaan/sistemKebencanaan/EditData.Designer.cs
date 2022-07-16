@@ -79,6 +79,7 @@
             // 
             // btn_submitEditData
             // 
+            this.btn_submitEditData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_submitEditData.Location = new System.Drawing.Point(215, 564);
             this.btn_submitEditData.Name = "btn_submitEditData";
             this.btn_submitEditData.Size = new System.Drawing.Size(110, 43);
@@ -368,6 +369,7 @@
             this.MinimizeBox = false;
             this.Name = "EditData";
             this.Text = "Edit Data - Sistem Informasi Kebencanaan Deli Serdang";
+            this.Load += new System.EventHandler(this.EditData_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

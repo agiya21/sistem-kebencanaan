@@ -50,7 +50,10 @@ namespace sistemKebencanaan
                     string petugasCode = (string)cmd.ExecuteScalar();
                     if (petugasCode == "Y")
                     {
-                        MessageBox.Show("Tampilkan Form Petugas");
+                        Home_Petugas homePetugas = new Home_Petugas();
+                        this.Hide();
+                        homePetugas.ShowDialog();
+                        this.Close();
                     } 
                     else
                     {
