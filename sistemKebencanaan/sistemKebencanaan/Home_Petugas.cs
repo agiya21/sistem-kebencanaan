@@ -42,6 +42,7 @@ namespace sistemKebencanaan
                 "a.dusun_lingkungan as [Dusun/Lingkungan], " +
                 "a.alamat as Alamat, " +
                 "a.fasilitas as Fasilitas, " +
+                "a.keterangan_fasilitas as [Keterangan Fasilitas], " +
                 "a.tingkat_kerusakan as [Tingkat Kerusakan], " +
                 "a.jumlah_kk as [Jumlah KK], " +
                 "a.jumlah_korban as [Jumlah Korban], " +
@@ -102,7 +103,8 @@ namespace sistemKebencanaan
         // Function Button Edit dan Delete data
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 19 || e.ColumnIndex == 0)
+            //if(e.ColumnIndex == 19 || e.ColumnIndex == 0)
+            if (e.ColumnIndex == 20)
             {
                 // Edit Data
                 //MessageBox.Show("Edit ID Data : " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -116,28 +118,40 @@ namespace sistemKebencanaan
                 refreshDataGrid();
 
             }
-            if (e.ColumnIndex == 20 || e.ColumnIndex == 1)
+            //if (e.ColumnIndex == 20 || e.ColumnIndex == 1)
+            if (e.ColumnIndex == 21)
             {
+
                 // Delete Data
-                string deletedIdData = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                string deleteDataQuery = "DELETE FROM sikdeliserdang WHERE id_data = " + deletedIdData;
+                DialogResult yesNoDelete = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?","Warning", MessageBoxButtons.YesNo);
 
-                using (SqlConnection conn = new SqlConnection(connString))
+                if(yesNoDelete == DialogResult.Yes)
                 {
-                    SqlCommand cmdDeleteData = new SqlCommand(deleteDataQuery, conn);
-                    cmdDeleteData.Connection.Open();
+                    string deletedIdData = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                    cmdDeleteData.CommandText = deleteDataQuery;
-                    cmdDeleteData.ExecuteNonQuery();
+                    string deleteDataQuery = "DELETE FROM sikdeliserdang WHERE id_data = " + deletedIdData;
+
+                    using (SqlConnection conn = new SqlConnection(connString))
+                    {
+                        SqlCommand cmdDeleteData = new SqlCommand(deleteDataQuery, conn);
+                        cmdDeleteData.Connection.Open();
+
+                        cmdDeleteData.CommandText = deleteDataQuery;
+                        cmdDeleteData.ExecuteNonQuery();
+                    }
+
+                }
+                else if(yesNoDelete == DialogResult.No)
+                {
+                    // Do nothing, tidak menghapus data
                 }
 
                 refreshDataGrid();
 
-                    
 
             }
-            
+
         }
     }
 }
