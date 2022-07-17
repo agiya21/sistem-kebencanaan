@@ -70,9 +70,10 @@
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(156, 87);
+            this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_login.Location = new System.Drawing.Point(156, 85);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(87, 28);
+            this.btn_login.Size = new System.Drawing.Size(87, 34);
             this.btn_login.TabIndex = 5;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
