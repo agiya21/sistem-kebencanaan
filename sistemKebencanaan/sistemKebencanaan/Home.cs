@@ -35,6 +35,7 @@ namespace sistemKebencanaan
                 "a.dusun_lingkungan as [Dusun/Lingkungan], " +
                 "a.alamat as Alamat, " +
                 "a.fasilitas as Fasilitas, " +
+                "a.keterangan_fasilitas as [Keterangan Fasilitas], " +
                 "a.tingkat_kerusakan as [Tingkat Kerusakan], " +
                 "a.jumlah_kk as [Jumlah KK], " +
                 "a.jumlah_korban as [Jumlah Korban], " +
@@ -73,6 +74,7 @@ namespace sistemKebencanaan
                 "a.dusun_lingkungan as [Dusun/Lingkungan], " +
                 "a.alamat as Alamat, " +
                 "a.fasilitas as Fasilitas, " +
+                "a.keterangan_fasilitas as [Keterangan Fasilitas], " +
                 "a.tingkat_kerusakan as [Tingkat Kerusakan], " +
                 "a.jumlah_kk as [Jumlah KK], " +
                 "a.jumlah_korban as [Jumlah Korban], " +

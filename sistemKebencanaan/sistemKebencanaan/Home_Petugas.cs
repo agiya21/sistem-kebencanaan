@@ -19,6 +19,7 @@ namespace sistemKebencanaan
         }
 
         public static string idData;
+        int searchCounter = 0;
 
         // connString: Sesuaikan server dan database nya dengan yang ada di sistem aslinya
         string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
@@ -78,6 +79,36 @@ namespace sistemKebencanaan
             dbtn_delete.UseColumnTextForButtonValue = true;
         }
 
+        private void refreshDataGridAfterSearch(string searchQuery)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Columns.Clear();
+
+            // Refresh Data Grid 
+            //SQLDataAdapter untuk select semua data dari tabel master sistem informasi kebencanaan
+            SqlDataAdapter da = new SqlDataAdapter(searchQuery, connString);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "data_kebencanaan");
+            dataGridView1.DataSource = ds.Tables["data_kebencanaan"].DefaultView;
+
+            // Coba tambah tombol Edit dan Delete di DataGridView (Untuk Home khusus Petugas)
+            // "Edit" Button
+            DataGridViewButtonColumn dbtn_edit = new DataGridViewButtonColumn();
+            dataGridView1.Columns.Add(dbtn_edit);
+            dbtn_edit.HeaderText = "Edit";
+            dbtn_edit.Text = "Edit";
+            dbtn_edit.Name = "btn_edit";
+            dbtn_edit.UseColumnTextForButtonValue = true;
+
+            // "Delete" Button
+            DataGridViewButtonColumn dbtn_delete = new DataGridViewButtonColumn();
+            dataGridView1.Columns.Add(dbtn_delete);
+            dbtn_delete.HeaderText = "Delete";
+            dbtn_delete.Text = "Delete";
+            dbtn_delete.Name = "btn_delete";
+            dbtn_delete.UseColumnTextForButtonValue = true;
+        }
+
         private void btn_insertData_Click(object sender, EventArgs e)
         {
             InsertData insertData = new InsertData();
@@ -90,14 +121,126 @@ namespace sistemKebencanaan
 
         }
 
+        private void cb_searchKecamatan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb_searchKecamatan = (ComboBox)sender;
+            string pilihanKecamatan = (string)cb_searchKecamatan.SelectedItem;
+
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                string idKecamatanQuery = "SELECT id_kecamatan FROM kecamatan_tm WHERE nama_kecamatan = '" + pilihanKecamatan + "'";
+
+                SqlCommand cmd = new SqlCommand(idKecamatanQuery, conn);
+                cmd.Connection.Open();
+
+                cmd.CommandText = idKecamatanQuery;
+                string idKec = (string)cmd.ExecuteScalar();
+
+                refreshItemDesaKelurahan(idKec);
+            }
+        }
+
+        private void cb_searchDesaKelurahan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_searchDesaKelurahan.SelectedValue.ToString() != null)
+            {
+                string kodeDesaKelurahan = (string)cb_searchDesaKelurahan.SelectedValue.ToString();
+                refreshItemDusunLingkugan(kodeDesaKelurahan);
+
+            }
+        }
+
+        /* ComboBox Desa/Kelurahan */
+        private void refreshItemDesaKelurahan(string kodeKecamatan)
+        {
+            if (cb_searchKecamatan.Text != "")
+            {
+                string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+                SqlConnection con = new SqlConnection(connString);
+                DataRow dr;
+
+                con.Open();
+                SqlCommand cmdDesKel = new SqlCommand("SELECT * FROM desa_kelurahan_tm WHERE id_kecamatan = @kodeKecamatan", con);
+                cmdDesKel.Parameters.AddWithValue("kodeKecamatan", kodeKecamatan);
+                SqlDataAdapter sda = new SqlDataAdapter(cmdDesKel);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                con.Close();
+                dr = dt.NewRow();
+                dr.ItemArray = new object[] { 0, "--Pilih Desa/Kelurahan--" };
+                dt.Rows.InsertAt(dr, 0);
+
+                cb_searchDesaKelurahan.ValueMember = "id_desakelurahan";
+                cb_searchDesaKelurahan.DisplayMember = "nama_desakelurahan";
+                cb_searchDesaKelurahan.DataSource = dt;
+            }
+
+        }
+
+        /* ComboBox Dusun Lingkungan */
+        private void refreshItemDusunLingkugan(string kodeDesaKelurahan)
+        {
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            SqlConnection con = new SqlConnection(connString);
+            DataRow dr;
+
+            con.Open();
+            SqlCommand cmdDusLing = new SqlCommand("SELECT * FROM dusun_lingkungan_tm WHERE id_desaKelurahan = @kodeDesaKelurahan", con);
+            cmdDusLing.Parameters.AddWithValue("kodeDesaKelurahan", kodeDesaKelurahan);
+            SqlDataAdapter sda = new SqlDataAdapter(cmdDusLing);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            dr = dt.NewRow();
+            dr.ItemArray = new object[] { 0, "--Pilih Dusun/Lingkungan--" };
+            dt.Rows.InsertAt(dr, 0);
+
+            cb_searchDusunLingkungan.ValueMember = "id_dusunlingkungan";
+            cb_searchDusunLingkungan.DisplayMember = "nama_dusunlingkungan";
+            cb_searchDusunLingkungan.DataSource = dt;
+        }
+
         private void Home_Petugas_Load(object sender, EventArgs e)
         {
-            /* Show data kebencanaan from SSMS */
-            //SQLDataAdapter untuk select semua data dari tabel master sistem informasi kebencanaan
-
             refreshDataGrid();
 
+            /* Tambah Item Untuk pencarian jenis bencana */
+            cb_searchJenisBencana.Items.Add("");
+            cb_searchJenisBencana.Items.Add("Angin Puting Beliung");
+            cb_searchJenisBencana.Items.Add("Banjir");
+            cb_searchJenisBencana.Items.Add("Gempa Bumi");
+            cb_searchJenisBencana.Items.Add("Kebakaran");
+            cb_searchJenisBencana.Items.Add("Longsor");
+            cb_searchJenisBencana.Items.Add("Tsunami");
 
+            // Tambah Item kecamatan
+            cb_searchKecamatan.Items.Add("");
+            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                string callItemQuery = "SELECT nama_kecamatan FROM kecamatan_tm";
+
+                SqlCommand cmd = new SqlCommand(callItemQuery, conn);
+                cmd.Connection.Open();
+
+                cmd.CommandText = callItemQuery;
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    cb_searchKecamatan.Items.Add((string)dr["nama_kecamatan"]);
+                }
+            }
+
+            /* Tambah Item untuk pencarian Fasilitas */
+            cb_searchFasilitas.Items.Add("");
+            cb_searchFasilitas.Items.Add("Sekolah");
+            cb_searchFasilitas.Items.Add("Rumah Ibadah");
+            cb_searchFasilitas.Items.Add("Rumah Tempat Tinggal");
+            cb_searchFasilitas.Items.Add("Pertanian/Perkebunan");
+                        
         }
 
         // Function Button Edit dan Delete data
@@ -107,23 +250,17 @@ namespace sistemKebencanaan
             if (e.ColumnIndex == 20)
             {
                 // Edit Data
-                //MessageBox.Show("Edit ID Data : " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 idData = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 EditData editData = new EditData();
                 editData.ShowDialog();
 
-                //dataGridView1.DataSource = null;
-                //dataGridView1.Columns.Clear();
-
                 refreshDataGrid();
 
             }
-            //if (e.ColumnIndex == 20 || e.ColumnIndex == 1)
             if (e.ColumnIndex == 21)
             {
 
                 // Delete Data
-
                 DialogResult yesNoDelete = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?","Warning", MessageBoxButtons.YesNo);
 
                 if(yesNoDelete == DialogResult.Yes)
@@ -149,8 +286,92 @@ namespace sistemKebencanaan
 
                 refreshDataGrid();
 
-
             }
+
+        }
+
+        private void btn_searchData_Click(object sender, EventArgs e)
+        {
+            // kalau pilihan combobox nya tidak kosong, counter nya +1
+            if (cb_searchJenisBencana.Text != "")
+            {
+                searchCounter += 1;
+            }
+            if(dtp_searchTanggal.Checked)
+            {
+                searchCounter += 1;
+            }
+            if (cb_searchKecamatan.Text != "")
+            {
+                searchCounter += 1;
+            }
+            if (cb_searchDesaKelurahan.Text != "")
+            {
+                searchCounter += 1;
+            }
+            if (cb_searchDusunLingkungan.Text != "")
+            {
+                searchCounter += 1;
+            }
+            if (cb_searchFasilitas.Text != "")
+            {
+                searchCounter += 1;
+            }
+
+            // Create query based on searchCounter
+            string searchQuery = selectAllQuery;
+            string finalSearchQuery = "";
+            string searchJenisBencana, searchTanggal, searchKecamatan, searchDesaKelurahan, searchDusunLingkungan, searchFasilitas;
+
+            searchJenisBencana = cb_searchJenisBencana.Text;
+            searchTanggal = dtp_searchTanggal.Text;
+            searchKecamatan = cb_searchKecamatan.Text;
+            searchDesaKelurahan = cb_searchDesaKelurahan.Text;
+            searchDusunLingkungan = cb_searchDusunLingkungan.Text;
+            searchFasilitas = cb_searchFasilitas.Text;
+
+            if (searchCounter > 0)
+            {
+                searchQuery += "WHERE ";
+                if(searchJenisBencana != "")
+                {
+                    searchQuery += "jenis_bencana = '" + searchJenisBencana + "' AND ";
+                }
+                if (searchTanggal != "")
+                {
+                    searchQuery += "tanggal = CONVERT(DATE,'" + searchTanggal + "',103) AND "; 
+                }
+                if(searchKecamatan != "")
+                {
+                    searchQuery += "kecamatan = '" + searchKecamatan + "' AND ";
+                }
+                if(searchDesaKelurahan != "")
+                {
+                    searchQuery += "desa_kelurahan = '" + searchDesaKelurahan + "' AND ";
+                }
+                if(searchDusunLingkungan != "")
+                {
+                    searchQuery += "dusun_lingkungan = '" + searchDusunLingkungan + "' AND ";
+                }
+                if(searchFasilitas != "")
+                {
+                    searchQuery += "fasilitas = '" + searchFasilitas + "' AND ";
+                }
+
+                // Final Query, hapus kata "AND" di WHERE item yang terakhir
+                finalSearchQuery = searchQuery.Remove(searchQuery.Length - 4, 4);
+                
+                //MessageBox.Show("Search Counter = " + searchCounter.ToString() + "\nQuery: " + finalSearchQuery);
+
+                refreshDataGridAfterSearch(finalSearchQuery);
+            }
+            else
+            {
+                refreshDataGrid();
+            }
+
+            // reset searchCounter
+            searchCounter = 0;
 
         }
     }
