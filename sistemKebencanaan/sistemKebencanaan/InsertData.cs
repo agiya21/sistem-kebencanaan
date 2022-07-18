@@ -380,7 +380,8 @@ namespace sistemKebencanaan
                     jumlahKorbanLansia + ", " +
                     jumlahLukaRingan + ", " +
                     jumlahLukaBerat + ", " +
-                    jumlahMeninggal + ", id_user FROM sik_users_petugas_tm WHERE username = '" + Login.uname + "' ";
+                    jumlahMeninggal + ", id_user , '" +
+                    keteranganFasilitas + "' FROM sik_users_petugas_tm WHERE username = '" + Login.uname + "' ";
 
 
                     SqlCommand cmdInsertData = new SqlCommand(insertDataQuery, conn);
