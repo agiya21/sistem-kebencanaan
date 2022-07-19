@@ -240,13 +240,28 @@ namespace sistemKebencanaan
             cb_searchFasilitas.Items.Add("Rumah Ibadah");
             cb_searchFasilitas.Items.Add("Rumah Tempat Tinggal");
             cb_searchFasilitas.Items.Add("Pertanian/Perkebunan");
+
+            /* Tambah Item untuk pencarian Bulan */
+            cb_searchBulan.Items.Add("");
+            cb_searchBulan.Items.Add("Januari");
+            cb_searchBulan.Items.Add("Februari");
+            cb_searchBulan.Items.Add("Maret");
+            cb_searchBulan.Items.Add("April");
+            cb_searchBulan.Items.Add("Mei");
+            cb_searchBulan.Items.Add("Juni");
+            cb_searchBulan.Items.Add("Juli");
+            cb_searchBulan.Items.Add("Agustus");
+            cb_searchBulan.Items.Add("September");
+            cb_searchBulan.Items.Add("Oktober");
+            cb_searchBulan.Items.Add("November");
+            cb_searchBulan.Items.Add("Desember");
                         
         }
 
         // Function Button Edit dan Delete data
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if(e.ColumnIndex == 19 || e.ColumnIndex == 0)
+            
             if (e.ColumnIndex == 20)
             {
                 // Edit Data
@@ -297,7 +312,11 @@ namespace sistemKebencanaan
             {
                 searchCounter += 1;
             }
-            if(dtp_searchTanggal.Checked)
+            if (cb_searchBulan.Text != "")
+            {
+                searchCounter += 1;
+            }
+            if (dtp_searchTahun.Checked)
             {
                 searchCounter += 1;
             }
@@ -321,14 +340,61 @@ namespace sistemKebencanaan
             // Create query based on searchCounter
             string searchQuery = selectAllQuery;
             string finalSearchQuery = "";
-            string searchJenisBencana, searchTanggal, searchKecamatan, searchDesaKelurahan, searchDusunLingkungan, searchFasilitas;
+            string searchJenisBencana, 
+                searchBulan, 
+                searchTahun, searchKecamatan, searchDesaKelurahan, searchDusunLingkungan, searchFasilitas;
 
             searchJenisBencana = cb_searchJenisBencana.Text;
-            searchTanggal = dtp_searchTanggal.Text;
+            /* Switch Case untuk pilihan Bulan*/
+            switch(cb_searchBulan.Text)
+            {
+                case "Januari":
+                    searchBulan = "01";
+                    break;
+                case "Februari":
+                    searchBulan = "02";
+                    break;
+                case "Maret":
+                    searchBulan = "03";
+                    break;
+                case "April":
+                    searchBulan = "04";
+                    break;
+                case "Mei":
+                    searchBulan = "05";
+                    break;
+                case "Juni":
+                    searchBulan = "06";
+                    break;
+                case "Juli":
+                    searchBulan = "07";
+                    break;
+                case "Agustus":
+                    searchBulan = "08";
+                    break;
+                case "September":
+                    searchBulan = "09";
+                    break;
+                case "Oktober":
+                    searchBulan = "10";
+                    break;
+                case "November":
+                    searchBulan = "11";
+                    break;
+                case "Desember":
+                    searchBulan = "12";
+                    break;
+                default:
+                    searchBulan = "";
+                    break;
+            }
+            searchTahun = dtp_searchTahun.Text;
             searchKecamatan = cb_searchKecamatan.Text;
             searchDesaKelurahan = cb_searchDesaKelurahan.Text;
             searchDusunLingkungan = cb_searchDusunLingkungan.Text;
             searchFasilitas = cb_searchFasilitas.Text;
+
+            
 
             if (searchCounter > 0)
             {
@@ -337,9 +403,13 @@ namespace sistemKebencanaan
                 {
                     searchQuery += "jenis_bencana = '" + searchJenisBencana + "' AND ";
                 }
-                if (searchTanggal != "")
+                if (searchBulan != "")
                 {
-                    searchQuery += "tanggal = CONVERT(DATE,'" + searchTanggal + "',103) AND "; 
+                    searchQuery += "tanggal LIKE '%-" + searchBulan + "-%' AND ";
+                }
+                if (searchTahun != "" && dtp_searchTahun.Checked)
+                {
+                    searchQuery += "tanggal LIKE '" + searchTahun + "-%' AND ";
                 }
                 if(searchKecamatan != "")
                 {
@@ -360,8 +430,8 @@ namespace sistemKebencanaan
 
                 // Final Query, hapus kata "AND" di WHERE item yang terakhir
                 finalSearchQuery = searchQuery.Remove(searchQuery.Length - 4, 4);
-                
-                //MessageBox.Show("Search Counter = " + searchCounter.ToString() + "\nQuery: " + finalSearchQuery);
+
+                MessageBox.Show("Search Counter = " + searchCounter.ToString() + "\nQuery: " + finalSearchQuery);
 
                 refreshDataGridAfterSearch(finalSearchQuery);
             }
@@ -373,6 +443,12 @@ namespace sistemKebencanaan
             // reset searchCounter
             searchCounter = 0;
 
+        }
+
+
+        private void btn_exportData_Click(object sender, EventArgs e)
+        {
+            //Microsoft.Office.Interop.Excel.ApplicationClass XcelApp = new Microsoft.Office.Interop.Excel.ApplicationClass();
         }
     }
 }
