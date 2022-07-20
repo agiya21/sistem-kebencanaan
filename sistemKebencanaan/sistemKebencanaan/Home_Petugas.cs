@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,7 +147,7 @@ namespace sistemKebencanaan
         {
             if (cb_searchDesaKelurahan.SelectedValue.ToString() != null)
             {
-                string kodeDesaKelurahan = (string)cb_searchDesaKelurahan.SelectedValue.ToString();
+                string kodeDesaKelurahan = cb_searchDesaKelurahan.SelectedValue.ToString();
                 refreshItemDusunLingkugan(kodeDesaKelurahan);
 
             }
@@ -431,7 +433,7 @@ namespace sistemKebencanaan
                 // Final Query, hapus kata "AND" di WHERE item yang terakhir
                 finalSearchQuery = searchQuery.Remove(searchQuery.Length - 4, 4);
 
-                MessageBox.Show("Search Counter = " + searchCounter.ToString() + "\nQuery: " + finalSearchQuery);
+                //MessageBox.Show("Search Counter = " + searchCounter.ToString() + "\nQuery: " + finalSearchQuery);
 
                 refreshDataGridAfterSearch(finalSearchQuery);
             }
@@ -446,9 +448,69 @@ namespace sistemKebencanaan
         }
 
 
+        /* Buat tombol Export Data di dataViewGrid1 jadi Excel */
         private void btn_exportData_Click(object sender, EventArgs e)
         {
-            //Microsoft.Office.Interop.Excel.ApplicationClass XcelApp = new Microsoft.Office.Interop.Excel.ApplicationClass();
+            // creating Excel Application
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+
+            // creating new WorkBook within Excel application
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+
+            // creating new Excelsheet in workbook
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            app.Visible = true;
+
+            // get reference of the first sheet.
+            // store its reference to worksheet
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+
+            //changing the name of sheet
+            worksheet.Name = "Export Data Kebencanaan";
+
+            // store header part in Excel
+            for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+            {
+                if (i == 21 || i == 22)
+                {
+                    continue;
+                }
+                else
+                {
+                    worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                }
+            }
+
+            // storing Each row and column value to excel sheet
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    if (j == 1)
+                    {
+                        string dateVal = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        string fixedDateData = dateVal.Substring(0,10);
+
+                        worksheet.Cells[i + 2, j + 1] = fixedDateData;
+                    }
+                    else if (j == 20 || j == 21)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+            }
+
+            // save the application
+            //workbook.SaveAs("C:\\output.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            // exit application
+            //app.Quit();
         }
     }
 }
