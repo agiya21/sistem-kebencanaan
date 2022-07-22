@@ -337,7 +337,7 @@
             // dtp_waktuKejadian
             // 
             this.dtp_waktuKejadian.Checked = false;
-            this.dtp_waktuKejadian.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            this.dtp_waktuKejadian.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtp_waktuKejadian.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_waktuKejadian.Location = new System.Drawing.Point(214, 96);
             this.dtp_waktuKejadian.Name = "dtp_waktuKejadian";

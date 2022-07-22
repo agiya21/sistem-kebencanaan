@@ -32,7 +32,10 @@
             this.btn_insertData = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,12 +68,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(1115, 331);
             this.dataGridView1.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(42, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Status: Non Petugas";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::sistemKebencanaan.Properties.Resources.Lambang_Kabupaten_Deli_Serdang;
+            this.pictureBox1.Location = new System.Drawing.Point(1012, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1186, 517);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_insertData);
             this.Controls.Add(this.label1);
@@ -81,6 +106,7 @@
             this.Text = "Home - Sistem Informasi Kebencanaan Deli Serdang";
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +118,7 @@
         private System.Windows.Forms.Button btn_insertData;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.ServiceProcess.ServiceController serviceController1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -46,7 +46,10 @@
             this.dtp_searchTahun = new System.Windows.Forms.DateTimePicker();
             this.cb_searchBulan = new System.Windows.Forms.ComboBox();
             this.btn_exportData = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -219,11 +222,33 @@
             this.btn_exportData.UseVisualStyleBackColor = true;
             this.btn_exportData.Click += new System.EventHandler(this.btn_exportData_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(33, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 18);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Status: Petugas";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::sistemKebencanaan.Properties.Resources.Lambang_Kabupaten_Deli_Serdang;
+            this.pictureBox1.Location = new System.Drawing.Point(1015, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // Home_Petugas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 545);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_exportData);
             this.Controls.Add(this.cb_searchBulan);
             this.Controls.Add(this.dtp_searchTahun);
@@ -248,6 +273,7 @@
             this.Text = "Home Petugas - Sistem Kebencanaan Deli Serdang";
             this.Load += new System.EventHandler(this.Home_Petugas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +299,7 @@
         private System.Windows.Forms.DateTimePicker dtp_searchTahun;
         private System.Windows.Forms.ComboBox cb_searchBulan;
         private System.Windows.Forms.Button btn_exportData;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
