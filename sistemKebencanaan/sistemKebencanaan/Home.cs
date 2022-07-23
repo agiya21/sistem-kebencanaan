@@ -25,6 +25,10 @@ namespace sistemKebencanaan
             /* Show data kebencanaan from SSMS */
             // connString: Sesuaikan server dan database nya dengan yang ada di sistem aslinya
             connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+
+            // Uncomment untuk pake server di laptop bapak
+            //connString = "server = LAPTOP-7KMMU9D1\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+
             //SQLDataAdapter untuk select semua data dari tabel master sistem informasi kebencanaan
 
             selectAllQuery = "SELECT a.tanggal AS Tanggal, " +

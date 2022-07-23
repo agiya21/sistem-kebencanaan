@@ -32,7 +32,10 @@ namespace sistemKebencanaan
                 jumlahLukaBerat,
                 jumlahMeninggal;
 
+        string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
 
+        // Uncomment untuk pake server di laptop bapak
+        //string connString = "server = LAPTOP-7KMMU9D1\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
 
         public InsertData()
         {
@@ -57,7 +60,8 @@ namespace sistemKebencanaan
             ComboBox cb_kecamatan = (ComboBox)sender;
             string pilihanKecamatan = (string)cb_kecamatan.SelectedItem;
 
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string idKecamatanQuery = "SELECT id_kecamatan FROM kecamatan_tm WHERE nama_kecamatan = '" + pilihanKecamatan + "'";
@@ -85,7 +89,7 @@ namespace sistemKebencanaan
         /* ComboBox Desa/Kelurahan */
         private void refreshItemDesaKelurahan(string kodeKecamatan)
         {
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             SqlConnection con = new SqlConnection(connString);
             DataRow dr;
 
@@ -109,7 +113,7 @@ namespace sistemKebencanaan
         /* ComboBox Dusun Lingkungan */
         private void refreshItemDusunLingkugan(string kodeDesaKelurahan)
         {
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             SqlConnection con = new SqlConnection(connString);
             DataRow dr;
 
@@ -246,7 +250,7 @@ namespace sistemKebencanaan
             cb_tingkatKerusakan.Items.Add("Berat (Kerusakan > 50%)");
 
             /* Combo Box pilihan "Kecamatan" */
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string callItemQuery = "SELECT nama_kecamatan FROM kecamatan_tm";
@@ -360,7 +364,7 @@ namespace sistemKebencanaan
                                 "\nJumlah Korban Meninggal: " + jumlahMeninggal +
                                 "\nInputter: " + Login.uname);
                 
-                string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+                //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
                     string insertDataQuery = "INSERT INTO sikdeliserdang SELECT " +

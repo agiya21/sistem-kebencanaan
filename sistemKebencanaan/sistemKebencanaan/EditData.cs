@@ -55,6 +55,9 @@ namespace sistemKebencanaan
 
         string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
 
+        // Uncomment untuk pake server di laptop bapak
+        //string connString = "server = LAPTOP-7KMMU9D1\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+
         public EditData()
         {
             InitializeComponent();
@@ -454,7 +457,7 @@ namespace sistemKebencanaan
                                 "\nJumlah Korban Meninggal: " + jumlahMeninggal_new +
                                 "\nInputter: " + Login.uname);
 
-                string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+                //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
                     //string updateDataQuery = "UPDATE sikdeliserdang SET " +

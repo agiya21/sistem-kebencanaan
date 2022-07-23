@@ -19,6 +19,12 @@ namespace sistemKebencanaan
         }
 
         public static string uname;
+        
+        string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+
+        // Uncomment untuk pake server di laptop bapak
+        //string connString = "server = LAPTOP-7KMMU9D1\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -26,7 +32,7 @@ namespace sistemKebencanaan
             string password = tb_password.Text;
 
             // Buat connection string untuk connect ke database
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 // Buat query untuk response code hasil SP User Login

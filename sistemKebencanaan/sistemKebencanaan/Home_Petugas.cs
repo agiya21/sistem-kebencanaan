@@ -25,6 +25,9 @@ namespace sistemKebencanaan
 
         // connString: Sesuaikan server dan database nya dengan yang ada di sistem aslinya
         string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+        
+        // Uncomment untuk pake server di laptop bapak
+        //string connString = "server = LAPTOP-7KMMU9D1\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
 
         string selectAllQuery;
 
@@ -128,7 +131,7 @@ namespace sistemKebencanaan
             ComboBox cb_searchKecamatan = (ComboBox)sender;
             string pilihanKecamatan = (string)cb_searchKecamatan.SelectedItem;
 
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string idKecamatanQuery = "SELECT id_kecamatan FROM kecamatan_tm WHERE nama_kecamatan = '" + pilihanKecamatan + "'";
@@ -158,7 +161,7 @@ namespace sistemKebencanaan
         {
             if (cb_searchKecamatan.Text != "")
             {
-                string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+                //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
                 SqlConnection con = new SqlConnection(connString);
                 DataRow dr;
 
@@ -183,7 +186,7 @@ namespace sistemKebencanaan
         /* ComboBox Dusun Lingkungan */
         private void refreshItemDusunLingkugan(string kodeDesaKelurahan)
         {
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             SqlConnection con = new SqlConnection(connString);
             DataRow dr;
 
@@ -218,7 +221,7 @@ namespace sistemKebencanaan
 
             // Tambah Item kecamatan
             cb_searchKecamatan.Items.Add("");
-            string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
+            //string connString = "server = DESKTOP-IVR81VU\\MSSQLAGI; database = info_kebencanaan; Integrated Security = True";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string callItemQuery = "SELECT nama_kecamatan FROM kecamatan_tm";
